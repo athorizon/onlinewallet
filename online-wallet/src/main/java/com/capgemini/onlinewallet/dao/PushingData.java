@@ -8,7 +8,7 @@ import java.util.Set;
 import com.capgemini.onlinewallet.dto.*;
 import com.capgemini.onlinewallet.util.*;
 public class PushingData {
-    PushingData(){
+    public PushingData(){
 		// TODO Auto-generated method stub
 	UserAccountRepository uar=new UserAccountRepository();
 	WalletAccountRepository war=new WalletAccountRepository();
