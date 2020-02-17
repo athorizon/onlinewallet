@@ -17,8 +17,9 @@ public class Connection {
 			while(it.hasNext())
 			{   System.out.println("in while loop");
 				String check=wut.get(it.next()).getLoginName();
-				if(check==str)
-				{   System.out.println("check: "+check+" login: "+str );
+				System.out.println("check: "+check+" login: "+str );
+				if(check.equalsIgnoreCase(str))
+				{   
 					return false;
 				}
 			}
