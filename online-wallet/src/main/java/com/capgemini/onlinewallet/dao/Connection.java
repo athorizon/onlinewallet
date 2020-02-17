@@ -35,5 +35,15 @@ public class Connection {
 			Double balance=wat.get(accountId).getAccountBalance();
 			return balance;
 		}
-
+        public void addAmount(Integer UserId,Double amount)
+        {
+        	HashMap<Integer,Integer>wut=new UserAccountRepository().getUserAccountTable();
+        	Integer accountId=wut.get(UserId);
+        	HashMap<Integer,WalletAccount>wat=new WalletAccountRepository().getWalletAccountTable();
+        	Double balance=wat.get(accountId).getAccountBalance();
+        	balance=balance+amount;
+        	wat.get(accountId).setAccountBalance(balance);
+        	System.out.println(wat.get(accountId).getAccountBalance());
+        	
+        }
 }
