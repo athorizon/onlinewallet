@@ -28,6 +28,20 @@ public class Connection {
 			return true;
 			
 		}
+		public boolean checkIDEntry(Integer userID)
+		{   
+			HashMap<Integer,WalletUser> wut=new WalletUserRepository().getWalletUserTable();
+			Set<Integer> keyset=wut.keySet();
+			Iterator it=keyset.iterator();
+			while(it.hasNext())
+			{
+				if(it.next()==userID)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 		public Double showBalance(Integer UserId)
 		{
 			HashMap<Integer,Integer> wut=new UserAccountRepository().getUserAccountTable();

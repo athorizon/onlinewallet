@@ -11,15 +11,16 @@ public class Main {
 		new PushingData();
 		System.out.println("If you want to register press 1, else press 2 and continue to login ");
 		int choice=new java.util.Scanner(System.in).nextInt();
+		Integer userId=new Integer(0);
 		switch(choice)
 		{
-		case 1: //call registeruser class
-			    new RegisterUser().pushData();
+		case 1: 
+			    userId=new RegisterUser().pushData();
 			    break;
 		case 2: //call to login class
 		}
-		
-		new DisplayData();
+		new Menu(userId);
+		//new DisplayData();
 
 	}
 

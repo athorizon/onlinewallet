@@ -29,7 +29,7 @@ public class SaveRegisterUserData {
     	Iterator it=keyset.iterator();
     	Integer max=Integer.MIN_VALUE;
     	while(it.hasNext())
-    	{
+    	{   
     		WalletUser obj=wut.get(it.next());
     		if(max<obj.getUserID())
     		{
@@ -55,13 +55,13 @@ public class SaveRegisterUserData {
     	}
     	return max+1;
     }
-    public boolean saveUserData(String name,String password,String login,String phone)
+    public Integer saveUserData(String name,String password,String login,String phone)
     {   
     	WalletUser user=new WalletUser(getNewUserId(),name,password,phone,login);
     	WalletAccount acc=new WalletAccount(getNewAccountId(),0.0,new ArrayList<Integer>());
     	wur.putData(user);
     	war.putData(acc);
     	uar.putData(user, acc);
-    	return true;
+    	return user.getUserID();
     }
 }

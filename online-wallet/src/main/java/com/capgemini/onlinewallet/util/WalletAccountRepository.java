@@ -19,4 +19,16 @@ public class WalletAccountRepository {
     {
     	walletAccountTable.put(wa.getAccountID(), wa);
     }
+    public Double addBalance(Integer Id,Double amount)
+    {
+    	Double balance=walletAccountTable.get(Id).getAccountBalance();
+    	walletAccountTable.get(Id).setAccountBalance(balance+amount);
+    	return walletAccountTable.get(Id).getAccountBalance();
+    }
+    public Double deductbalance(Integer Id,Double amount)
+    {
+    	Double balance=walletAccountTable.get(Id).getAccountBalance();
+    	walletAccountTable.get(Id).setAccountBalance(balance-amount);
+    	return walletAccountTable.get(Id).getAccountBalance();
+    }
 }
