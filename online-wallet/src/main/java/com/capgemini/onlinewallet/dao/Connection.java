@@ -1,7 +1,9 @@
 package com.capgemini.onlinewallet.dao;
 
+import com.capgemini.onlinewallet.dto.WalletAccount;
 import com.capgemini.onlinewallet.dto.WalletUser;
 import com.capgemini.onlinewallet.util.UserAccountRepository;
+import com.capgemini.onlinewallet.util.WalletAccountRepository;
 import com.capgemini.onlinewallet.util.WalletUserRepository;
 import java.util.*;
 public class Connection {
@@ -24,6 +26,14 @@ public class Connection {
 			}
 			return true;
 			
+		}
+		public Double showBalance(Integer UserId)
+		{
+			HashMap<Integer,Integer> wut=new UserAccountRepository().getUserAccountTable();
+			Integer accountId=wut.get(UserId);
+			HashMap<Integer,WalletAccount> wat=new WalletAccountRepository().getWalletAccountTable();
+			Double balance=wat.get(accountId).getAccountBalance();
+			return balance;
 		}
 
 }
