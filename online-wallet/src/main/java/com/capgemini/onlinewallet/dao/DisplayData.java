@@ -8,9 +8,9 @@ import java.util.Set;
 import com.capgemini.onlinewallet.dto.WalletUser;
 import com.capgemini.onlinewallet.util.WalletUserRepository;
 
-public class CheckData {
+public class DisplayData {
 
-	public CheckData() {
+	public DisplayData() {
 		HashMap<Integer, WalletUser> wut=new WalletUserRepository().getWalletUserTable();
 		Set<Integer> keyset=wut.keySet();
 		Iterator<Integer> it=keyset.iterator();

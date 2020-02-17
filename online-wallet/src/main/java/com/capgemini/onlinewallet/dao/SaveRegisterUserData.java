@@ -12,7 +12,9 @@ public class SaveRegisterUserData {
 	}
     public boolean validateLoginName(String login)
     {   //returns true if the loginName is not present in the WalletUserTable else returns false
-    	return true;
+    	System.out.println("validate login name");
+    	
+    	return new Connection().checkLoginEntry(login);
     }
     Integer getNewUserId()
     {   
@@ -31,9 +33,10 @@ public class SaveRegisterUserData {
     	}
     	return max+1;
     }
-    public void saveUserData(String name,String password,String login,String phone)
+    public boolean saveUserData(String name,String password,String login,String phone)
     {   
     	WalletUser user=new WalletUser(getNewUserId(),name,password,phone,login);
     	wur.putData(user);
+    	return true;
     }
 }

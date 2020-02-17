@@ -1,6 +1,7 @@
 package com.capgemini.onlinewallet.ui;
 
 import com.capgemini.onlinewallet.dto.WalletUser;
+import com.capgemini.onlinewallet.exception.NullValueException;
 import com.capgemini.onlinewallet.service.UserDataValidation;
 
 public class RegisterUser {
@@ -23,6 +24,20 @@ public class RegisterUser {
     public void pushData()
     {
     	//tranfer data to userdatavalidation class
-    	new UserDataValidation().takeDate(name, password, login, phone);
+    	try {
+    	boolean result=new UserDataValidation().checkData(name, password, login, phone);
+    	System.out.println("check pushData");
+    	System.out.println("result: "+result);
+    	if(result==false)
+    	{
+    		throw new NullValueException("A value entered is not in acceptable format, please enter again");
+    	}
+    	}
+    	catch(NullValueException e)
+    	{
+    		System.out.println(e.getMessage());
+    		new RegisterUser().pushData();
+    	}
+    	new UserDataValidation().putData(name, password, login, phone);
     }
 }
