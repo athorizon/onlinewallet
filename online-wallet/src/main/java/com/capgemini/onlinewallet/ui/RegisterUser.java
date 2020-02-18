@@ -21,13 +21,13 @@ public class RegisterUser {
 		// TODO Auto-generated constructor stub
 	}
 	
-    public void pushData()
+    public Integer pushData()
     {
     	//tranfer data to userdatavalidation class
     	try {
     	boolean result=new UserDataValidation().checkData(name, password, login, phone);
-    	System.out.println("check pushData");
-    	System.out.println("result: "+result);
+    	//System.out.println("check pushData");
+    	//System.out.println("result: "+result);
     	if(result==false)
     	{
     		throw new NullValueException("A value entered is not in acceptable format, please enter again");
@@ -38,6 +38,6 @@ public class RegisterUser {
     		System.out.println(e.getMessage());
     		new RegisterUser().pushData();
     	}
-    	new UserDataValidation().putData(name, password, login, phone);
+    	return new UserDataValidation().putData(name, password, login, phone);
     }
 }

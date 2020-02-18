@@ -50,7 +50,7 @@ public class UserDataValidation {
 		else {
 		return true;}
 	}
-	public boolean putData(String name,String password,String login,String phone)
+	public Integer putData(String name,String password,String login,String phone)
 	{
 		 return new SaveRegisterUserData().saveUserData(name, password, login, phone);
 	}

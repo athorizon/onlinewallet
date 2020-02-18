@@ -19,13 +19,28 @@ public class Connection {
 			while(it.hasNext())
 			{   System.out.println("in while loop");
 				String check=wut.get(it.next()).getLoginName();
-				if(check==str)
-				{   System.out.println("check: "+check+" login: "+str );
+				System.out.println("check: "+check+" login: "+str );
+				if(check.equalsIgnoreCase(str))
+				{   
 					return false;
 				}
 			}
 			return true;
 			
+		}
+		public boolean checkIDEntry(Integer userID)
+		{   
+			HashMap<Integer,WalletUser> wut=new WalletUserRepository().getWalletUserTable();
+			Set<Integer> keyset=wut.keySet();
+			Iterator it=keyset.iterator();
+			while(it.hasNext())
+			{
+				if(it.next()==userID)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 		public Double showBalance(Integer UserId)
 		{
