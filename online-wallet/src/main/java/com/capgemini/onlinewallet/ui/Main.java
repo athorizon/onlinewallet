@@ -19,8 +19,9 @@ public class Main {
 			    break;
 		case 2: //call to login class
 		}
-		new Menu(userId);
 		//new DisplayData();
+		new Menu(userId);
+		
 
 	}
 

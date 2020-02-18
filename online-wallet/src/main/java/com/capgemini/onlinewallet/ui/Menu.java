@@ -1,5 +1,6 @@
 package com.capgemini.onlinewallet.ui;
 
+import com.capgemini.onlinewallet.service.*;
 import com.capgemini.onlinewallet.service.Transaction;
 
 public class Menu {
@@ -22,14 +23,23 @@ public class Menu {
         	int input=sc.nextInt();
         	switch(input)
         	{
-        	case 1: //call showmoney;
+        	case 1: new ShowBalanceValidation().showBalance(userId);
         		    break;
-        	case 2: //call addmoney();
+        	case 2: askAmountDetails();
         		    break;
         	case 3: askTransactionDetails();
         	        break;
+        	default:System.out.println("wrong choice");
+        	        return;
         	}
            }
+        }
+        void askAmountDetails()
+        {
+        	System.out.println("enter Amount to tranfer in your account");
+        	Double amount=sc.nextDouble();
+        	new AddAmountValidation().addAmount(userId, amount);
+        	
         }
         void askTransactionDetails()
         {

@@ -17,8 +17,10 @@ public class TransactingAmount {
 			Integer accId=uat.get(uid);
 			Integer tranId=uat.get(tid);
 			WalletAccountRepository war=new WalletAccountRepository();
-			Double uBalance=war.addBalance(uid,amount);
-			Double tBalance=war.deductbalance(tid, amount);
+			Double uBalance=new Connection().addAmount(tid, amount);
+			Double tBalance=new Connection().deductAmount(uid, amount);
+			//System.out.println("user: "+new Connection().showBalance(uid));
+			//System.out.println("beneficiary: "+new Connection().showBalance(tid));
 			new CreatingTransaction(uid,new Random().nextInt(5000),"Money Dedcuted for Trandfering into another Account",LocalDateTime.now(),amount,uBalance);
 			new CreatingTransaction(tid,new Random().nextInt(5000),"Money Recieved and added to the account",LocalDateTime.now(),amount,tBalance);
 		}

@@ -2,53 +2,48 @@ package com.capgemini.onlinewallet.service;
 
 import com.capgemini.onlinewallet.dao.SaveRegisterUserData;
 import com.capgemini.onlinewallet.dto.WalletUser;
+import com.capgemini.onlinewallet.exception.NullValueException;
+import com.capgemini.onlinewallet.exception.ValidationException;
 
 public class UserDataValidation {
 
 	public UserDataValidation() {
 		// TODO Auto-generated constructor stub
 	}
-	boolean checkNull(String check)
+	void checkNull(String check) throws NullValueException
 	{
-		if(check==null) {return false;}
-		else {
-		return true;}
+		if(check==null) {throw new NullValueException("Entered Value Cannot be Null");}
+		
 	}
-	boolean checkNumber(String str)
+	void checkNumber(String str) throws ValidationException
 	{
-		if(str.length()!=10) {return false;}
-		else
-		{
-		return true;}
+		if(str.length()!=10) {throw new ValidationException("The Number entered must be of in correct format");}
+		
 	}
-	public boolean  checkData(String name,String password,String login,String phone)
-	{   
-		if(checkNull(name)==false)
-	    {
-		   System.out.println("check name");
-	       return false;
-	    }
-		else if(checkNull(password)==false)
-	    {
-	    	System.out.println("check pass");
-	        return false;
-	    }
-		else if(checkNull(login)==false)
-	    {
-	    	System.out.println("check login null");
-	    	return false;
-	    }
-		else if((checkNull(phone)==false)&&(checkNumber(phone)==false))
-	    {
-	    	System.out.println("check phone");
-	    	return false;
-	    }
-		else if(new SaveRegisterUserData().validateLoginName(login)==false)
-		{   System.out.println("check login");
-			return false;
+	void checkPassword(String password) throws ValidationException
+	{
+		if(password.length()<6) {throw new ValidationException("The PassWord entered must be greater or equal to 6 chracters");}
+	
+	}
+	public boolean checkData(String name,String password,String login,String phone) 
+	{   try {
+		checkNull(name);
+		checkNull(password);
+		checkPassword(password);
+		checkNull(phone);
+		checkNumber(phone);
+		if(new SaveRegisterUserData().validateLoginName(login)==false)
+		{   throw new ValidationException("The Login id already exist");
+			
 		}
-		else {
-		return true;}
+	}
+	catch(Exception e)
+	{
+		e.printStackTrace();
+		System.out.println(e.getMessage());
+		return false;
+	}
+		return true;
 	}
 	public Integer putData(String name,String password,String login,String phone)
 	{

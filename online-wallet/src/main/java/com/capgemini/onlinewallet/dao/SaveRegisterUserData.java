@@ -17,7 +17,7 @@ public class SaveRegisterUserData {
 	}
     public boolean validateLoginName(String login)
     {   //returns true if the loginName is not present in the WalletUserTable else returns false
-    	System.out.println("validate login name");
+    	//System.out.println("validate login name");
     	
     	return new Connection().checkLoginEntry(login);
     }
@@ -62,6 +62,7 @@ public class SaveRegisterUserData {
     	wur.putData(user);
     	war.putData(acc);
     	uar.putData(user, acc);
+    	//System.out.println(acc.getAccountID());
     	return user.getUserID();
     }
 }
