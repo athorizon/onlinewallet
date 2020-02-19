@@ -10,19 +10,22 @@ public class UserDataValidation {
 	public UserDataValidation() {
 		// TODO Auto-generated constructor stub
 	}
-	void checkNull(String check) throws NullValueException
+	public boolean checkNull(String check) throws NullValueException
 	{
 		if(check==null) {throw new NullValueException("Entered Value Cannot be Null");}
+		return true;
 		
 	}
-	void checkNumber(String str) throws ValidationException
+	public boolean checkNumber(String str) throws ValidationException
 	{
 		if(str.length()!=10) {throw new ValidationException("The Number entered must be of in correct format");}
+		return true;
 		
 	}
-	void checkPassword(String password) throws ValidationException
+	public boolean checkPassword(String password) throws ValidationException
 	{
 		if(password.length()<6) {throw new ValidationException("The PassWord entered must be greater or equal to 6 chracters");}
+		return true;
 	
 	}
 	public boolean checkData(String name,String password,String login,String phone) 
@@ -39,7 +42,7 @@ public class UserDataValidation {
 	}
 	catch(Exception e)
 	{
-		e.printStackTrace();
+		
 		System.out.println(e.getMessage());
 		return false;
 	}

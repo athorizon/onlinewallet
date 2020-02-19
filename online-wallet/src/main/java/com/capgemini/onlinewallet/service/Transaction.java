@@ -12,7 +12,7 @@ public class Transaction {
 	{
 		return new Connection().checkIDEntry(tID);
 	}
-	boolean checkAmount(Double amount)
+	public boolean checkAmount(Double amount)
 	{
 		if(amount<=0)
 		{

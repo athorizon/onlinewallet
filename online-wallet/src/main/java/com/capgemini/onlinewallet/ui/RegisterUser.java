@@ -8,7 +8,7 @@ public class RegisterUser {
 	private String phone,password,login,name;
 	public RegisterUser() {
 		WalletUser obj=new WalletUser();
-		System.out.println("enter user deatils: ");
+		System.out.println("enter user deta ils: ");
 		System.out.println("Enter Name");
 		java.util.Scanner sc=new java.util.Scanner(System.in);
 		name=sc.nextLine();

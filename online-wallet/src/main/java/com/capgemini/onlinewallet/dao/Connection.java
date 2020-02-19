@@ -17,9 +17,9 @@ public class Connection {
 			Iterator it=keyset.iterator();
 			
 			while(it.hasNext())
-			{   //System.out.println("in while loop");
+			{   
 				String check=wut.get(it.next()).getLoginName();
-				//System.out.println("check: "+check+" login: "+str );
+				
 				if(check.equalsIgnoreCase(str))
 				{   
 					return false;
@@ -35,21 +35,21 @@ public class Connection {
 			Iterator<Integer>it=keyset.iterator();
 			while(it.hasNext())
 			{   Integer uid=wut.get(it.next()).getUserID();
-			    //System.out.println("uid: "+uid+" userid: "+userID);
+			    
 				if(uid.equals(userID))
-				{   //System.out.println("here");
+				{   
 					return true;
 				}
 			}
 			return false;
 		}
-		public Double showBalance(Integer UserId)
+		public Double showBalance(Integer userId)
 		{
 			HashMap<Integer,Integer> wut=new UserAccountRepository().getUserAccountTable();
-			Integer accountId=wut.get(UserId);
+			Integer accountId=wut.get(userId);
 			HashMap<Integer,WalletAccount> wat=new WalletAccountRepository().getWalletAccountTable();
-			Double balance=wat.get(accountId).getAccountBalance();
-			return balance;
+			return wat.get(accountId).getAccountBalance();
+			
 		}
         public Double addAmount(Integer userId,Double amount)
         {
@@ -76,7 +76,7 @@ public class Connection {
         public boolean checkBalance(Integer userid,Double amount)
         {
         	Double balance=showBalance(userid);
-        	if(amount>balance)
+        	if(amount>=balance)
         	{
         		return false;
         	}

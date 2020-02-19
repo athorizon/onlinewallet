@@ -62,7 +62,6 @@ public class SaveRegisterUserData {
     	wur.putData(user);
     	war.putData(acc);
     	uar.putData(user, acc);
-    	//System.out.println(acc.getAccountID());
     	return user.getUserID();
     }
 }

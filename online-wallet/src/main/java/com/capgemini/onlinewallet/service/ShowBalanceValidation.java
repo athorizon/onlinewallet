@@ -7,9 +7,9 @@ public class ShowBalanceValidation {
 	public ShowBalanceValidation() {
 		// TODO Auto-generated constructor stub
 	}
-	public void showBalance(Integer userId)
+	public Double showBalance(Integer userId)
 	{
-		System.out.println(new Connection().showBalance(userId));
+		return new Connection().showBalance(userId);
 	}
 
 }

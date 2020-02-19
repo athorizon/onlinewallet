@@ -45,6 +45,6 @@ public class PushingData {
 	{   
 		System.out.println("account number is is: "+ua.get(it.next()));
 	}*/
-	System.out.println("data entered");
+	
     }
 }

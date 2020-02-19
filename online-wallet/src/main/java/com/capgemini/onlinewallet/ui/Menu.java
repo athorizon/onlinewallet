@@ -23,7 +23,7 @@ public class Menu {
         	int input=sc.nextInt();
         	switch(input)
         	{
-        	case 1: new ShowBalanceValidation().showBalance(userId);
+        	case 1: System.out.println(new ShowBalanceValidation().showBalance(userId));
         		    break;
         	case 2: askAmountDetails();
         		    break;
