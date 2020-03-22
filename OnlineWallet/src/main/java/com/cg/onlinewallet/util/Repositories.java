@@ -13,11 +13,11 @@ public class Repositories {
 	
 	static
 	{   
-		WalletUser w1=new WalletUser(101,"Aarushi","Arushi123","1234567890","B_Arushi");
-		WalletAccount a1=new WalletAccount(1001,5000.00,null);
-		walletUserTable.put(101, w1);
-		walletAccountTable.put(1001, a1);
-		userAccountTable.put(101, 1001);
+		WalletUser w1=new WalletUser(11002,"Aarushi","Arushi123","1234567890","B_Arushi");
+		WalletAccount a1=new WalletAccount(1002,5000.00,null);
+		walletUserTable.put(11002, w1);
+		walletAccountTable.put(1002, a1);
+		userAccountTable.put(11002, 1002);
 	}
 	
 	public static HashMap<Integer, WalletUser> getWalletUserTable() {
